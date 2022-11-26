@@ -22,7 +22,6 @@ import okhttp3.Response;
 
 public class ItemsCollection {
 
-
     public static ArrayList<Item> getItemCollection() throws IOException, JSONException {
 
         StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
