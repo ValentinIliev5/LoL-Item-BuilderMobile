@@ -65,7 +65,6 @@ public class ItemsCollection {
                     JSONObject price  = item.getJSONObject("gold");
                     itemToAdd.Cost = Integer.parseInt(price.get("total").toString());
                     itemToAdd.ItemImagePath = apiURLIcon + key + ".png";
-                    itemToAdd.IsMythic = false;
 
                     itemsCollection.add(itemToAdd);
                 }
