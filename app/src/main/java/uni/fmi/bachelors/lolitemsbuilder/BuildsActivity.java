@@ -70,9 +70,9 @@ public class BuildsActivity extends AppCompatActivity {
 
                 @Override
                 public void onClick(View arg0) {
-                    dbHandler.deleteBuild(build.ID);
-                    finish();
-                    startActivity(getIntent());
+                    Intent i = new Intent(getApplicationContext(),UpdateBuildActivity.class);
+                    i.putExtra("buildID",build.ID);
+                    startActivity(i);
                 }
             }
             ));

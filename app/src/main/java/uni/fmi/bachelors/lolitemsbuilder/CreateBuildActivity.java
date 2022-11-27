@@ -24,7 +24,6 @@ public class CreateBuildActivity extends AppCompatActivity {
 
     ImageView champImgV,item1ImgV,item2ImgV,item3ImgV,item4ImgV,item5ImgV,item6ImgV;
     EditText buildNameET;
-    TextView test;
     Button createBtn;
 
     ScrollView scrv;
