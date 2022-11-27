@@ -2,6 +2,7 @@ package uni.fmi.bachelors.lolitemsbuilder;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.net.Uri;
@@ -41,11 +42,11 @@ public class ItemsListActivity extends AppCompatActivity {
         LayoutInflater inflater = LayoutInflater.from(this);
 
         ArrayList<Item> items = dbHandler.readAllItems();
-        View view = inflater.inflate(R.layout.item,galleryItems,false);
+        View view;
 
 
 
-        for(int i=0;i<items.size();i++)
+        for(Item item : items)
         {
             view = inflater.inflate(R.layout.item,galleryItems,false);
             ImageView itemImg = (ImageView) view.findViewById(R.id.ItemImageV);
@@ -53,13 +54,13 @@ public class ItemsListActivity extends AppCompatActivity {
             TextView itemDesc = view.findViewById(R.id.DescriptionTV);
             TextView itemCost = view.findViewById(R.id.CostTV);
 
-            Uri uri = Uri.parse(items.get(i).ItemImagePath);
+            Uri uri = Uri.parse(item.ItemImagePath);
 
             Glide.with(this).load(uri).into(itemImg);
 
-            itemName.setText(items.get(i).ItemName);
-            itemDesc.setText(items.get(i).ItemDesc);
-            itemCost.setText("Price: "+items.get(i).Cost+" gold");
+            itemName.setText(item.ItemName);
+            itemDesc.setText(item.ItemDesc);
+            itemCost.setText("Price: "+item.Cost+" gold");
             galleryItems.addView(view);
 
         }

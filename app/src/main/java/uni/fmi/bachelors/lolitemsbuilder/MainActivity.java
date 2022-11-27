@@ -22,11 +22,24 @@ public class MainActivity extends AppCompatActivity {
     Button champsBtn;
     Button itemsBtn;
     Button buildsBtn;
+    DBHandler dbHandler;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        dbHandler = new DBHandler(MainActivity.this);
+        if(dbHandler.readAllItems().size()==0)
+        {
+            try {
+                dbHandler.FillDB();
+            } catch (IOException e) {
+                e.printStackTrace();
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+        }
 
         itemsBtn = findViewById(R.id.toItemsBtn);
         itemsBtn.setOnClickListener(new View.OnClickListener() {
@@ -38,6 +51,23 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        champsBtn = findViewById(R.id.toChampionsBtn);
+        champsBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(getApplicationContext(),ChampionsListActivity.class);
+                startActivity(i);
+            }
+        });
+
+        buildsBtn = findViewById(R.id.toBuildsBtn);
+        buildsBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(getApplicationContext(),BuildsActivity.class);
+                startActivity(i);
+            }
+        });
 
     }
 }

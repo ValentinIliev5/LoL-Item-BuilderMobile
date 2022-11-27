@@ -4,18 +4,17 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ChampionsListActivity">
+    tools:context=".BuildsActivity">
 
     <ScrollView
-        android:id="@+id/ChampionsWrapper"
+        android:id="@+id/buildsWrapper"
         android:layout_width="409dp"
-        android:layout_height="729dp"
+        android:layout_height="723dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:ignore="SpeakableTextPresentCheck">
+        app:layout_constraintTop_toTopOf="parent">
 
         <LinearLayout
-            android:id="@+id/galleryChampions"
+            android:id="@+id/buildsGallery"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical" />

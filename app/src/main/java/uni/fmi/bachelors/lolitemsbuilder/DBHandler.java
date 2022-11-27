@@ -16,7 +16,7 @@ public class DBHandler extends SQLiteOpenHelper {
 
 
     public DBHandler(Context context){
-        super(context,"LoLItemBuilder",null,1);
+        super(context,"LoLItemBuilder",null,3);
     }
 
     @Override
@@ -39,6 +39,7 @@ public class DBHandler extends SQLiteOpenHelper {
         query = "CREATE TABLE IF NOT EXISTS BUILDS ("+
                 "ID INTEGER PRIMARY KEY AUTOINCREMENT, "+
                 "NAME TEXT NOT NULL, " +
+                "CHAMPIONNAME TEXT , " +
                 "ITEM1ID TEXT NOT NULL, " +
                 "ITEM2ID TEXT NOT NULL, " +
                 "ITEM3ID TEXT NOT NULL, " +
@@ -88,6 +89,7 @@ public class DBHandler extends SQLiteOpenHelper {
         ContentValues values = new ContentValues();
 
         values.put("NAME",build.Name);
+        values.put("CHAMPIONNAME",build.ChampName);
         values.put("ITEM1ID",build.FirstItemID);
         values.put("ITEM2ID",build.SecondItemID);
         values.put("ITEM3ID",build.ThirdItemID);
@@ -144,14 +146,15 @@ public class DBHandler extends SQLiteOpenHelper {
 
         if(cursor.moveToFirst()){
             do{
-                builds.add(new Build(
+                builds.add(new Build(cursor.getInt(0),
                         cursor.getString(1)
-                        ,cursor.getInt(2)
+                        ,cursor.getString(2)
                         ,cursor.getInt(3)
                         ,cursor.getInt(4)
                         ,cursor.getInt(5)
                         ,cursor.getInt(6)
-                        ,cursor.getInt(7))
+                        ,cursor.getInt(7)
+                        ,cursor.getInt(8))
                 );
 
             } while (cursor.moveToNext());

@@ -12,10 +12,16 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.LoLItemsBuilder">
         <activity
+            android:name=".CreateBuildActivity"
+            android:exported="true" />
+        <activity
+            android:name=".BuildsActivity"
+            android:exported="true" />
+        <activity
             android:name=".ItemsListActivity"
             android:exported="true" />
         <activity
-            android:name=".Champions_Page"
+            android:name=".ChampionsListActivity"
             android:exported="true" />
         <activity
             android:name=".MainActivity"
